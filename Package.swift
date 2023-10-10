@@ -9,7 +9,7 @@ let package = Package(
         .library(name: "MMWormhole", targets: ["MMWormhole"])
     ],
     targets: [
-        .target(name: "MMWormhole", path: "Source"),
+        .target(name: "MMWormhole", path: "Source", publicHeadersPath: ""),
     ],
     swiftLanguageVersions: [.v5]
 )
