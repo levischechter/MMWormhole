@@ -55,7 +55,14 @@
     }
     
     if (messageObject) {
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject];
+        NSError *errorr = nil;
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:messageObject requiringSecureCoding:YES error:&errorr];
+
+        if (errorr) {
+            // Handle the error appropriately
+            NSLog(@"Error archiving data: %@", errorr);
+            return NO;
+        }
         
         if (data == nil) {
             return NO;
